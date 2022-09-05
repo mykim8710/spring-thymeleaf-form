@@ -1,11 +1,16 @@
 package com.example.itemservice;
 
+import com.example.itemservice.domain.item.DeliveryCode;
 import com.example.itemservice.domain.item.Item;
 import com.example.itemservice.domain.item.ItemRepository;
+import com.example.itemservice.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -18,8 +23,8 @@ public class TestDataInit {
      */
     @PostConstruct
     public void init() {
-        itemRepository.save(new Item("itemA", 10000, 10));
-        itemRepository.save(new Item("itemB", 20000, 20));
+        itemRepository.save(new Item("itemA", 10000, 10, true, new ArrayList<String>(Arrays.asList("SEOUL")), ItemType.BOOK, "FAST"));
+        itemRepository.save(new Item("itemB", 20000, 20, true, new ArrayList<String>(Arrays.asList("BUSAN")), ItemType.BOOK, "FAST"));
     }
 
 }
